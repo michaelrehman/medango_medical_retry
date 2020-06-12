@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 
-import 'package:medango_medical_retry/themes.dart' show defaultTheme;
-import 'package:medango_medical_retry/screens/login/login.dart';
-import 'package:medango_medical_retry/screens/main_menu/main_menu.dart';
+import 'themes.dart' show defaultTheme;
+import 'screens/login/login.dart';
+import 'screens/contacts/contacts.dart';
+import 'screens/messages/messages.dart';
+import 'screens/medications/medications.dart';
+import 'screens/calendar/calendar.dart';
+import 'screens/settings/settings.dart';
 
 void main() => runApp(MedangoMedical());
 
@@ -15,11 +19,11 @@ class MedangoMedical extends StatelessWidget {
       routes: <String, WidgetBuilder>{
         '/login': (context) => Login(),
         // '/signup': (context) => SignUp(),
-        '/mainmenu': (context) => MainMenu(),
-        // '/contacts': (context) => Contacts(),
-        // '/medications': (context) => Medications(),
-        // '/calendar': (context) => Calendar(),
-        // '/settings': (context) => Settings(),
+        '/contacts': (context) => Contacts(),
+        '/messages': (context) => Messages(),
+        '/medications': (context) => Medications(),
+        '/calendar': (context) => Calendar(),
+        '/settings': (context) => Settings(),
       }, // Map<String, WidgetBuilder>
       theme: defaultTheme,
       debugShowCheckedModeBanner: false,

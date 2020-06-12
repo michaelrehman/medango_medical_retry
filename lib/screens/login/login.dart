@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:medango_medical_retry/screens/login/widgets/custom_button.dart';
+import 'widgets/custom_button.dart';
 
 class Login extends StatelessWidget {
   @override
@@ -44,8 +44,7 @@ class Login extends StatelessWidget {
                   children: <Widget>[
                     CustomButton(
                       onPressed: () {
-                        Navigator.pop(context);
-                        Navigator.pushNamed(context, '/mainmenu');
+                        Navigator.pushReplacementNamed(context, '/medications');
                       }, // VoidCallback
                       buttonColor: Theme.of(context).primaryColor,
                       textColor: Theme.of(context).secondaryHeaderColor,
