@@ -6,7 +6,7 @@ class AddContact extends StatefulWidget {
   static const relationships = [
     '[ Relationship ]',
     'Mother',
-    'Fater',
+    'Father',
     'Step-Mother',
     'Step-Father',
     'Grandmother',

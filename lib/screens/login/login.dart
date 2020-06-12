@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import './widgets/custom_button.dart';
+import 'package:medango_medical_retry/screens/login/widgets/custom_button.dart';
 
 class Login extends StatelessWidget {
   @override

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-import '../../widgets/navigation_drawer.dart';
-import '../../widgets/details_list.dart';
-import './widgets/add_contact.dart';
+import 'package:medango_medical_retry/widgets/details_list.dart';
+import 'package:medango_medical_retry/widgets/navigation_drawer.dart';
+import 'package:medango_medical_retry/screens/contacts/widgets/add_contact.dart';
 
 class Contacts extends StatelessWidget {
+  final _detailsKey = GlobalKey<DetailsListState>();
+
   @override
   Widget build(BuildContext context) {
-    final _detailsKey = GlobalKey<DetailsListState>();
-
     return Scaffold(
       appBar: AppBar(title: Text('Contacts')),
       drawer: NavigationDrawer(),
@@ -20,13 +20,13 @@ class Contacts extends StatelessWidget {
             builder: (context) => AddContact(),
           );
           _detailsKey.currentState.addEntry(
-            (dataMap) => DetailsEntry(
-              title: '${dataMap['name']} (${dataMap['relation']})',
-              subtitle: '${dataMap['phone']} - ${dataMap['email']}',
+            (onDelete, [_]) => DetailsEntry(
+              title: '${result['name']} (${result['relation']})',
+              subtitle: '${result['phone']} - ${result['email']}',
+              onDelete: onDelete,
             ), // DetailsEntry
-            result,
           );
-        }, // VoidCallback
+        }, // VoidCallback,
       ), // FloatingActionButton
       body: DetailsList(key: _detailsKey),
     ); // Scaffold
