@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-import 'themes.dart' show defaultTheme;
-import 'screens/login/login.dart';
-import 'screens/contacts/contacts.dart';
-import 'screens/messages/messages.dart';
-import 'screens/medications/medications.dart';
-import 'screens/calendar/calendar.dart';
-import 'screens/settings/settings.dart';
+import './themes.dart' show defaultTheme;
+import './screens/login/login.dart';
+import './screens/contacts/contacts.dart';
+import './screens/messages/messages.dart';
+import './screens/medications/medications.dart';
+import './screens/calendar/calendar.dart';
+import './screens/settings/settings.dart';
 
 void main() => runApp(MedangoMedical());
 
