@@ -6,6 +6,7 @@ class AddContact extends StatefulWidget {
   static const relationships = [
     '[ Relationship ]',
     'Mother',
+    'Fater',
     'Step-Mother',
     'Step-Father',
     'Grandmother',
@@ -32,8 +33,6 @@ class _AddContactState extends State<AddContact> {
     'phone': TextEditingController(),
     'email': TextEditingController(),
   };
-
-  _AddContactState();
 
   @override
   Widget build(BuildContext context) {
