@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-typedef DetailsEntry ConstructDetailsEntry(DeleteDetailsEntry onDelete, [Map<String, String> data]);
+typedef DetailsEntry ConstructDetailsEntry(DeleteDetailsEntry onDelete,
+    [Map<String, String> data]);
 typedef void DeleteDetailsEntry(DetailsEntry entry);
 
 enum PopupMenuActions { edit, delete }
@@ -71,7 +72,8 @@ class DetailsListState extends State<DetailsList> {
 
   void addEntry(ConstructDetailsEntry constructor, [Map<String, String> data]) {
     if (data != null) {
-      setState(() => entries.addAll([constructor(removeEntry, data), Divider()]));
+      setState(
+          () => entries.addAll([constructor(removeEntry, data), Divider()]));
     } else {
       setState(() => entries.addAll([constructor(removeEntry), Divider()]));
     } // if

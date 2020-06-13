@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'package:medango_medical_retry/util/util.dart';
 import 'package:medango_medical_retry/widgets/details_list.dart';
 import 'package:medango_medical_retry/widgets/navigation_drawer.dart';
 import 'package:medango_medical_retry/screens/contacts/widgets/add_contact.dart';
@@ -19,13 +20,7 @@ class Contacts extends StatelessWidget {
             context: context,
             builder: (context) => AddContact(),
           );
-          _detailsKey.currentState.addEntry(
-            (onDelete, [_]) => DetailsEntry(
-              title: '${result['name']} (${result['relation']})',
-              subtitle: '${result['phone']} - ${result['email']}',
-              onDelete: onDelete,
-            ), // DetailsEntry
-          );
+          _detailsKey.currentState.addEntry(composeDetailsEntry, result);
         }, // VoidCallback,
       ), // FloatingActionButton
       body: DetailsList(key: _detailsKey),

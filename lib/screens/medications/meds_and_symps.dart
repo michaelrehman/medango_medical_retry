@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'package:medango_medical_retry/util/util.dart';
 import 'package:medango_medical_retry/widgets/details_list.dart';
 import 'package:medango_medical_retry/widgets/navigation_drawer.dart';
 import 'package:medango_medical_retry/screens/medications/widgets/add_medicaiton.dart';
@@ -20,7 +21,6 @@ class MedsAndSymps extends StatelessWidget {
         appBar: AppBar(
           title: Text('Medications & Symptoms'),
           bottom: TabBar(
-            isScrollable: true,
             tabs: <Widget>[
               for (final tab in tabNames) Tab(text: tab),
             ], // <Widget>[]
@@ -49,12 +49,6 @@ class MedsAndSymps extends StatelessWidget {
       builder: (context) =>
           currentTabIndex == 0 ? AddMedication() : AddSymptom(),
     );
-    keys[currentTabIndex].currentState.addEntry(
-      (onDelete, [_]) => DetailsEntry(
-        title: '${result['name']} (${result['relation']})',
-        subtitle: '${result['phone']} - ${result['email']}',
-        onDelete: onDelete,
-      ), // DetailsEntry
-    );
+    keys[currentTabIndex].currentState.addEntry(composeDetailsEntry, result);
   } // _handlePressed
 } // Medications

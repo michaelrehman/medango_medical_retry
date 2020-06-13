@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../../widgets/validated_text_form_field.dart';
+import 'package:medango_medical_retry/widgets/validated_text_form_field.dart';
 
 class AddContact extends StatefulWidget {
   static const relationships = [
-    '[ Relationship ]',
     'Mother',
     'Father',
     'Step-Mother',
@@ -26,7 +25,7 @@ class AddContact extends StatefulWidget {
 
 class _AddContactState extends State<AddContact> {
   final _formKey = GlobalKey<FormState>();
-  String selectedRelationship = '[ Relationship ]';
+  String selectedRelationship = 'Mother';
 
   final controllers = {
     'name': TextEditingController(),
@@ -62,8 +61,7 @@ class _AddContactState extends State<AddContact> {
               onChanged: (newValue) {
                 setState(() => selectedRelationship = newValue);
               }, // ValueChanged<String>
-              items: AddContact.relationships
-                  .map<DropdownMenuItem<String>>((String relation) {
+              items: AddContact.relationships.map((String relation) {
                 return DropdownMenuItem<String>(
                   value: relation,
                   child: Text(relation),
@@ -76,11 +74,15 @@ class _AddContactState extends State<AddContact> {
       actions: <Widget>[
         FlatButton(
           child: Text('Submit'),
+          // title: '${result['name']} (${result['relation']})',
+          // subtitle: '${result['phone']} - ${result['email']}',
           onPressed: () {
             if (_formKey.currentState.validate()) {
-              final values =
-                  controllers.map((key, value) => MapEntry(key, value.text));
-              values.addAll({'relation': selectedRelationship});
+              final values = {
+                'title': '${controllers['name'].text} ($selectedRelationship)',
+                'subtitle': '${controllers['phone'].text}'
+                    ' - ${controllers['email'].text}',
+              };
               Navigator.pop(context, values);
             } // if
           }, // VoidCallback
