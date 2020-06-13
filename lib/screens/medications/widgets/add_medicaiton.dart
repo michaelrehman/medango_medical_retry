@@ -13,8 +13,8 @@ class AddMedication extends StatefulWidget {
 
 class _AddMedicationState extends State<AddMedication> {
   final _formKey = GlobalKey<FormState>();
-  String selectedDosage = 'mg';
-  String selectedFrequency = 'a day';
+  String selectedDosage = AddMedication.dosages.first;
+  String selectedFrequency = AddMedication.frequencies.first;
 
   final controllers = {
     'medication': TextEditingController(),

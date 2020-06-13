@@ -25,7 +25,7 @@ class AddContact extends StatefulWidget {
 
 class _AddContactState extends State<AddContact> {
   final _formKey = GlobalKey<FormState>();
-  String selectedRelationship = 'Mother';
+  String selectedRelationship = AddContact.relationships.first;
 
   final controllers = {
     'name': TextEditingController(),
